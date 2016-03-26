@@ -1,0 +1,210 @@
+body{
+	background: #e4e6e9;
+}
+
+body {
+  padding-top: 50px;
+}
+
+/* Hide for mobile, show later */
+.sidebar {
+  display: none;
+}
+@media (min-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 51px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    background-color: #f5f5f5;
+    border-right: 1px solid #eee;
+  }
+}
+
+/* Sidebar navigation */
+.nav-sidebar {
+  margin-right: -21px; /* 20px padding + 1px border */
+  margin-bottom: 20px;
+  margin-left: -20px;
+}
+.nav-sidebar > li > a {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+  color: #fff;
+  background-color: #428bca;
+}
+
+
+/* 树-start */
+.tree {
+	padding-left: 9px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	position: relative;
+}
+
+.panel-body.tree {
+	padding-top: 0;
+}
+
+.tree .tree-folder .tree-folder-header .tree-folder-name {
+	margin-left: 2px;
+}
+
+.tree .tree-folder .tree-folder-header .tree-folder-name, .tree .tree-item .tree-item-name
+	{
+	display: inline;
+	z-index: 2;
+}
+
+.tree .tree-folder .tree-folder-header:hover,
+.tree .tree-item:hover {
+	background-color: #f0f7fc;
+}
+
+
+.tree .tree-selected {
+	background-color: rgba(98,168,209,0.1);
+	color: #6398b0;
+}
+
+.tree .tree-selected:hover {
+	background-color: rgba(98,168,209,0.1);
+}
+
+.tree .tree-folder {
+	width: auto;
+	min-height: 20px;
+	cursor: pointer;
+}
+
+.tree .tree-item, .tree .tree-folder .tree-folder-header {
+	margin: 0;
+	padding: 5px;
+	color: #4d6878;
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+}
+
+.tree .tree-item {
+	position: relative;
+	height: 20px;
+	line-height: 20px;
+	cursor: pointer;
+}
+
+.tree>.tree-folder:before {
+	border-top: none !important;
+}
+
+.tree .tree-folder:before, .tree .tree-item:before {
+	display: inline-block;
+	content: "";
+	position: absolute;
+	top: 14px;
+	left: -13px;
+	width: 18px;
+	height: 0;
+	border-top: 1px dotted #67b2dd;
+	z-index: 1;
+}
+
+.tree .tree-folder .tree-folder-content:before {
+	display: inline-block;
+	content: "";
+	position: absolute;
+	z-index: 1;
+	top: -14px;
+	bottom: 16px;
+	left: -14px;
+	border: 1px dotted #67b2dd;
+	border-width: 0 0 0 1px;
+}
+
+.tree .tree-folder .tree-folder-content {
+	margin-left: 23px;
+	position: relative;
+}
+
+.tree .tree-folder-header>.glyphicon, .tree .glyphicon-plus, .tree .glyphicon-minus
+	{
+	border: 1px solid #DDD;
+	vertical-align: middle;
+	height: 11px;
+	width: 11px;
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+	text-align: center;
+	border: 1px solid #8baebf;
+	line-height: 10px;
+	background-color: #FFF;
+	position: relative;
+	z-index: 1;
+}
+
+.tree .tree-folder .tree-folder-header>.glyphicon {
+	margin: -2px 0 0 -2px;
+}
+
+.tree .tree-folder .tree-folder-header>.glyphicon, .tree .tree-item>.glyphicon
+	{
+	display: inline-block;
+	position: relative;
+	z-index: 2;
+	top: -1px;
+	text-align: center;
+}
+
+.tree .glyphicon-plus:before {
+	display: block;
+	font-size: 16px;
+	font-family: "Open Sans";
+	position: relative;
+	z-index: 1;
+	margin-left:2px;
+}
+
+.tree .glyphicon-minus:before {
+	content: "";
+	display: block;
+	width: 7px;
+	height: 0;
+	border-top: 1px solid #4d6878;
+	position: absolute;
+	top: 5px;
+	left: 2px;
+}
+
+.tree .tree-item>.glyphicon {
+	color: #f9e8ce;
+	width: 13px;
+	height: 13px;
+	line-height: 13px;
+	font-size: 11px;
+	text-align: center;
+	border-radius: 3px;
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+	background-color: #fafafa;
+	border: 1px solid #CCC;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.tree .tree-selected>.glyphicon-ok {
+	background-color: #f9a021;
+	border-color: #f9a021;
+	color: #FFF;
+}
+/* 树-end */

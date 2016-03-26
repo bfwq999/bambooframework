@@ -1,0 +1,93 @@
+<script src="resources/js/controllers/auth/userEditCotroller.js"></script>
+<form class="form-horizontal" ng-controller="UserEditController">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">用户基本信息</h3>
+		</div>
+		<div class="panel-body">
+			<div class="form-group" ng-show="orgName!=null">
+				<label class="col-sm-2 control-label">机构</label>
+				<div class="col-sm-10">
+					<p class="form-control-static">{{orgName}}</p>
+				</div>
+			</div>
+			<div class="form-group" ng-show="orgName==null">
+				<label for="posInput" class="col-sm-2 control-label">机构</label>
+				<div class="col-sm-6 bs-example">
+					<input type="hidden" ng-model="user.orgId">
+					<angucomplete id="members" placeholder="请输入机构名称或拼音检索" pause="400"
+						selectedobject="user.orgId" url="orgs?queryParam.name="
+						titlefield="name" minlength="1" valuefield="id"
+						inputclass="form-control form-control-small" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="userEditor_codeInput" class="col-sm-2 control-label">员工编号</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="userEditor_codeInput"
+						ng-model="user.code" placeholder="请输入员工编号">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="userEditor_nameInput" class="col-sm-2 control-label">姓名</label>
+				<div class="col-xs-10">
+					<input type="text" class="form-control" ng-model="user.name"
+						id="userEditor_nameInput" placeholder="请输入员工姓名">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">性别</label>
+				<div class="col-xs-10">
+					<label class="radio-inline"> <input type="radio"
+						ng-model="user.sex" value="male"> 男
+					</label> <label class="radio-inline"> <input type="radio"
+						ng-model="user.sex" value="female"> 女
+					</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="userEditor_emailInput" class="col-sm-2 control-label">邮箱</label>
+				<div class="col-xs-10">
+					<input type="text" class="form-control" ng-model="user.email"
+						id="userEditor_emailInput" placeholder="请输入邮箱">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="userEditor_cellPhoneInput"
+					class="col-sm-2 control-label">手机</label>
+				<div class="col-xs-10">
+					<input type="text" class="form-control" ng-model="user.cellphone"
+						id="userEditor_cellPhoneInput" placeholder="请输入员工手机号">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">账号信息</h3>
+		</div>
+		<div class="panel-body">
+			<div class="form-group">
+				<label for="userEditor_loginNameInput"
+					class="col-sm-2 control-label">账户名：</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control"
+						id="userEditor_loginNameInput" ng-model="user.loginName"
+						placeholder="请输入账户">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="userEditor_passwordInput" class="col-sm-2 control-label">密码：</label>
+				<div class="col-xs-10">
+					<input type="text" class="form-control" ng-model="user.password"
+						id="userEditor_passwordInput" placeholder="请设置密码">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="pull-right">
+		<button type="button" class="btn btn-primary" ng-click="ok()">保存</button>
+		<button type="button" class="btn btn-warning" ng-click="cancel()">{{$modalInstance?'关闭':'返回'}}</button>
+	</div>
+	<div class="clearfix"></div>
+</form>

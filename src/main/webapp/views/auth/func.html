@@ -1,0 +1,78 @@
+<script src="resources/js/controllers/auth/funcController.js"></script>
+<div ng-controller="FuncController">
+	<ol class="breadcrumb">
+			<li><a href="#">首页</a></li>
+			<li class="active">菜单管理</li>
+	</ol>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-3">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">菜单列表</h3>
+					</div>
+					<div class="panel-body tree" my-tree="funcs"
+						tree-children="children" tree-click="treeClick" node-text="name"></div>
+				</div>
+			</div>
+			<div class="col-xs-9">
+				<div class="row">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">菜单信息</h3>
+						</div>
+						<div class="panel-body">
+							<form class="form-horizontal" role="search">
+								<div class="form-group">
+									<label for="funcCodeInput" class="col-sm-2 control-label">菜单编码</label>
+									<div class="col-sm-4">
+										<input type="text" class="form-control" id="funcCodeInput"
+											ng-model="func.code" placeholder="菜单编码">
+									</div>
+									<label for="funcNameInput" class="col-sm-2 control-label">菜单名称</label>
+									<div class="col-xs-4">
+										<input type="text" class="form-control" ng-model="func.name"
+											id="funcNameInput" placeholder="菜单名称">
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<ul tabset>
+						<li tab heading="权限">
+							<table class="table table-striped">
+								<tr>
+									<th>序号</th>
+									<th>权限编码</th>
+									<th>名称</th>
+									<th>描述</th>
+									<th>操作</th>
+								</tr>
+								<tr ng-repeat="func in permission.rows">
+									<td>{{func.pagination.offset+$index+1}}</td>
+									<td>{{func.code}}</td>
+									<td>{{func.name}}</td>
+									<td>{{func.comment}}</td>
+									<td><a href="#" class="btn btn-primary"
+										ng-click="addFunc(func)"
+										ng-show="isPermitted('func:edit')">编辑</a> <a href="#"
+										class="btn btn-primary" ng-click="deleteFunc(func)"
+										ng-show="isPermitted('func:delete')">删除</a></td>
+								</tr>
+							</table>
+						</li>
+						<li class="pull-right">
+							<button type="button" class="btn btn-sm  btn-success"
+										ng-click="addFunc('M')" ng-show="func && isPermitted('func:add')">添加菜单</button>
+							<button type="button" class="btn btn-sm btn-primary"
+								ng-click="addFunc('A')" ng-show="func && isPermitted('func:add')">添加权限</button>
+						</li>
+					</ul>
+					</tabset>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

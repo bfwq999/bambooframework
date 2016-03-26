@@ -1,0 +1,1 @@
+insert into t_property(id_,value_) values('nextid','100000');

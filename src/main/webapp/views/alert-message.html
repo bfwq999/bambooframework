@@ -1,0 +1,21 @@
+<div ng-controller="AlertController">
+	<div class="alert alert-success" ng-show="alertMessages">
+		<button type="button" class="close" aria-label="关闭" ng-click="close()">
+			<span aria-hidden="true">&times;</span>
+		</button>
+		<!-- <span class="glyphicon glyphicon-ok"></span> -->
+		<ul>
+			<li ng-repeat="msg in alertMessages">{{msg}}</li>
+		</ul>
+	</div>
+	<div class="alert alert-danger" ng-show="errorMessages" role="alert">
+		<button type="button" class="close" data-dismiss="alert"
+			aria-label="关闭" ng-click="close()">
+			<span aria-hidden="true">&times;</span>
+		</button>
+		<!-- <span class="glyphicon glyphicon-remove"></span> -->
+		<ul>
+			<li ng-repeat="msg in errorMessages">{{msg}}</li>
+		</ul>
+	</div>
+</div>

@@ -1,0 +1,47 @@
+create table T_ORG(
+	ORGID VARCHAR(64),
+	ORGNAME VARCHAR(256)
+);
+
+create table T_USER (
+	USERID varchar(64),
+    USERNAME varchar(64),
+    EMAIL varchar(300),
+    PASSWORD varchar(64),
+    ORGID VARCHAR(64),
+    primary key (USERID)
+);
+alter table T_USER add constraint FK_USER_ORGID foreign key(ORGID) REFERENCES T_ORG(ORGID);
+
+create table T_ROLE(
+	ROLEID VARCHAR(64),
+	ROLENAME VARCHAR(256),
+	 primary key (ROLEID)
+);
+
+create table T_USER_ROLE(
+	USERID varchar(64),
+	ROLEID VARCHAR(64),
+	primary key (USERID,ROLEID)
+);
+alter table T_USER_ROLE add constraint FK_UR_USERID foreign key(USERID) REFERENCES T_USER(USERID);
+alter table T_USER_ROLE add constraint FK_UR_ROLEID foreign key(ROLEID) REFERENCES T_ROLE(ROLEID);
+
+create table T_FUNC(
+	FUNCID VARCHAR(64),
+	FUNCCODE VARCHAR(64),
+	URL VARCHAR(128),
+	FUNCNAME VARCHAR(128),
+	FTYPE CHAR,
+	primary key (FUNCID)
+);
+
+create table T_ROLE_FUNC(
+	ROLEID VARCHAR(64),
+	FUNCID VARCHAR(64),
+	primary key (ROLEID,FUNCID)
+);
+alter table T_ROLE_FUNC add constraint FK_RP_FUNCID foreign key(FUNCID) REFERENCES T_FUNC(FUNCID);
+alter table T_ROLE_FUNC add constraint FK_RP_ROLEID foreign key(ROLEID) REFERENCES T_ROLE(ROLEID);
+
+

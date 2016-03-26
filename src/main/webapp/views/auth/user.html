@@ -1,0 +1,78 @@
+<script src="resources/js/controllers/auth/userController.js"
+	type="text/javascript" charset="utf-8"></script>
+<div ng-controller="UserController">
+	<ol class="breadcrumb">
+		<li><a href="#">首页</a></li>
+		<li><a href="#">用户管理</a></li>
+	</ol>
+	<form name="userListForm" class="form-inline" >
+		<div class="form-group">
+			<label for="codeOrNameInput">员工编号或姓名:</label> <input type="text"
+				class="form-control" id="codeOrNameInput" ng-model="queryParam.codeOrName"
+				placeholder="员工编号或姓名">
+		</div>
+		<div class="form-group">
+			<label for="orgIdInput">机构</label> <!-- <input type="text"
+				class="form-control" id="orgIdInput" ng-model="queryParam.orgId"
+				placeholder="机构"> -->
+				<angucomplete id="members" placeholder="请输入机构名称或拼音检索" pause="400"
+					selectedobject="queryParam.orgId" url="orgs?queryParam.name="
+					titlefield="name" minlength="1" valuefield="id"
+					inputclass="form-control form-control-small" />
+		</div>
+		<a href="#" class="btn btn-primary" ng-click="queryUser()">查询</a>
+	</form>
+
+	<div class="panel panel-default"  style="margin-top:20px;">
+		<div class="panel-heading">
+			<ul class="list-inline">
+			  <li>
+			  <h3 class="panel-title">结果列表</h3>
+			  </li>
+			  <li  class="checkbox" style="margin-top:0; margin-bottom:0;">
+				<label> <input type="checkbox" value="true">显示离职员工
+				</label>
+			  </li>
+			  <li class="pull-right"><button type="button" class="btn btn-sm  btn-success"
+										ng-click="addUser()" ng-show="isPermitted('user:add')">添加员工</button></li>
+			</ul>
+		</div>
+		<div class="panel-body">
+			<table class="table table-striped">
+				<tr>
+					<th>序号</th>
+					<th>员工编号</th>
+					<th>姓名</th>
+					<th>性别</th>
+					<th>邮箱</th>
+					<th>状态</th>
+					<th>机构</th>
+					<th>操作</th>
+				</tr>
+				<tr ng-repeat="user in users">
+					<td>{{users.pagination.offset+$index+1}}</td>
+					<td>{{user.code}}</td>
+					<td>{{user.name}}</td>
+					<td>{{user.sex | selModel:'SEX'}}</td>
+					<td>{{user.email}}</td>
+					<td>
+					<span class="label label-sm"  ng-class="user.status=='0'?'label-success':'label-warning'">
+						{{user.status | selModel:'USER_STATUS'}}
+					</span>
+					</td>
+					<td>{{user.orgName}}</td>
+					<td><a href="#" class="btn btn-primary btn-xs" ng-click="edit(user)"
+						ng-show="isPermitted('user:edit')">
+							<i class="glyphicon glyphicon-edit"></i>
+						</a> <a href="#"
+						class="btn btn-danger btn-xs" ng-click="deleteUser(user)"
+						ng-show="isPermitted('user:delete')"><i class="glyphicon glyphicon-trash"></i></a></td>
+				</tr>
+			</table>
+			<pagination direction-links="false" boundary-links="true"
+				max-size="5" total-items="users.pagination.total"
+				items-per-page="users.pagination.pageSize" ng-model="users.pagination.pageNo"
+				first-text="首页" last-text="最后" ng-change="pageChanged()"></pagination>
+		</div>
+	</div>
+</div>
