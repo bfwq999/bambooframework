@@ -18,6 +18,7 @@ define(['js/app'], function(app) {
 							pageSize:10
 					}
 				}
+				debugger;
 				$scope.users = $users.getList(angular.extend({},{
 					queryParam:$scope.queryParam
 				},pagination)).$object;

@@ -33,6 +33,7 @@ angular.module("myApp.ztreeDirective", []).directive("myZtree", function() {
 			setting:'@'
 		},
 		template:function(tElement,tAttrs){
+			debugger;
 			var treeId = "tree_"+new Date().getTime();
 			return '<div>\
 			<ul class="ztree" id="'+treeId+'"></ul>\
@@ -41,6 +42,7 @@ angular.module("myApp.ztreeDirective", []).directive("myZtree", function() {
 		},
 		compile:function(tElement,tAttrs,transclude){
 			return function($scope, $element, $attrs, $ngModel) {
+				debugger;
 				if (!$ngModel) {
 					return;
 				}
@@ -54,8 +56,7 @@ angular.module("myApp.ztreeDirective", []).directive("myZtree", function() {
 				
 				var _clone = $.fn.zTree._z.tools.clone;
 				
-				debugger;
-				$scope.$watch($attrs['ngModel'], function(newValue){
+				$scope.$parent.$watch($attrs['ngModel'], function(newValue){
 					if(!newValue){
 						return;
 					}
@@ -145,8 +146,9 @@ angular.module("myApp.ztreeDirective", []).directive("myZtree", function() {
 				};
 			}
 		},
-		controller:function(){
+		controller:["$scope",function($scope){
 			debugger;
-		}
+			$scope.defaultSetting = defaultSetting;
+		}]
 	};
 });

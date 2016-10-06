@@ -1,7 +1,7 @@
 'use strict';
 define(['js/myAppModule'], function() {
 	var app = angular.module('customersApp', [ 'ngRoute', 'ngMessages',
-					'myApp', 'ui.bootstrap', 'restangular', 'angucomplete' ]);
+					'myApp', 'ui.bootstrap', 'restangular', 'angucomplete','datautil' ]);
 	app.constant('CONTEXT_PATH', ''); 
 	app.config([
 			'$routeProvider',
@@ -12,10 +12,10 @@ define(['js/myAppModule'], function() {
 			'$locationProvider',
 			'$httpProvider',
 			'RestangularProvider',
+			'DataUtilProvider',
 			function($routeProvider,
 					$controllerProvider, $compileProvider, $filterProvider,
-					$provide,$locationProvider,$httpProvider,RestangularProvider) {
-				
+					$provide,$locationProvider,$httpProvider,RestangularProvider,DataUtilProvider) {
 			    $httpProvider.defaults.headers.common['Access-From'] = 'angularjs';
 			    $httpProvider.interceptors.push("httpInterceptor");
 			    //$httpProvider.defaults.headers.common['Cache-Control'] = 'no-cache';

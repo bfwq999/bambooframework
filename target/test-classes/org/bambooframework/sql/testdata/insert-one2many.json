@@ -1,0 +1,20 @@
+{	
+	"id":"insertOrg",
+	"before":[],
+	"after":[],
+	"operate":[
+	    {
+	    	"id":"ORG",
+	    	"type":"insert",
+	    	"data":{
+	    			"T_ORG.NAME_":"测试",
+	    			"T_ORG.CODE_":"001",
+	    			"T_ORG.SHORT_NAME_":"测试",
+	    			"T_ORG.T_POSITION":[{
+	    				"name_":"测试岗位",
+	    				"comment_":"测试用"
+	    			}]
+	    	}
+	    }
+	]
+}

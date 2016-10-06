@@ -1,0 +1,17 @@
+{	
+	"id":"insertOrg",
+	"before":[],
+	"after":[],
+	"operate":[
+	    {
+	    	"id":"ORG",
+	    	"type":"insert",
+	    	"database":"",
+	    	"data":{
+	    			"T_ORG.NAME_":"测试",
+	    			"T_ORG.CODE_":"001",
+	    			"T_ORG.SHORT_NAME_":"测试"
+	    		}
+	    }
+	]
+}

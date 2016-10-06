@@ -1,0 +1,61 @@
+{	
+	"id":"queryOrg",
+	"before":[],
+	"after":[],
+	"operate":[
+	    {
+	    	"id":"ORG",
+	    	 TABLE:"T_ORG",
+	    	 ALIAS:"T_ORG"
+	    	 COLUMNS:"*",
+	    	 JOIN:[
+	    			{
+	    				TABLE:"T_POSITION",
+	    				ALIAS:"T_POSITION"
+	    				COLUMNS:["*"],
+	    				ON:"T_ORG.ID_ = T_POSITION.ORG_ID_"
+	    			},
+	    			{
+	    				TABLE:"T_USER",
+	    				ALIAS:"T_USER"
+	    				COLUMNS:["*"],
+	    				ON:"T_ORG.ID_ = T_USER.ORG_ID_"
+	    			},
+	    	 ]
+	    	"WHERE":[{
+	    		TYPE:"AND",
+	    		CONDITION:"EQ",
+	    		LEFT:{
+	    			TABLE:"T_ORG",
+	    			COLNAME:"ID_",
+	    			FUNNAME:"TO_DATE",
+	    			FOMATTER:""
+	    		} 或 "" 或 [] 或 
+	    		RIGHT:"", {
+	    			TYPE:"QUERY",
+	 				TABLE:"T_USER",
+	    			ALIAS:"T_USER"
+	    			COLUMNS:["ID_"],
+	    			WHERE:[]
+	 			}
+	    	},{
+	    		TYPE:"AND",
+	    		GROUP:[{
+			    		TYPE:"AND",
+			    		TABLE:"T_ORG",
+			    		COLNAME:"ID_",
+			 			VALUE:"",
+			 			VALUE:{
+			 				TABLE:"T_POSITION",
+			 				COLNAME:"ORG_ID_",
+			 			},
+			 			VALUE:[],
+			 			VALUE:{
+			 				
+			 			}
+			    	}
+	    		]
+	    	}]
+	    }
+	]
+}

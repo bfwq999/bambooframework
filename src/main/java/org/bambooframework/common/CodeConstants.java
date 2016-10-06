@@ -16,4 +16,9 @@ public class CodeConstants {
 	/** 机构状态 */
 	public final static String ORG_STATUS_NORMAL = "0"; //正常
 	public final static String ORG_STATUS_FREEZE = "1"; //删除
+	
+	/** 是否 */
+	public static String YESNO_Y  = "Y";
+	public static String YESNO_N  = "N";
+	
 }

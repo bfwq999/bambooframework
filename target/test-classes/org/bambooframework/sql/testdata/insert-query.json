@@ -1,0 +1,22 @@
+{	
+	"id":"queryOrg",
+	"before":"",
+	"after":"",
+	"operate":[
+	    {
+	    	"id":"QueryORG",
+	    	"type":"query",
+	    	"result":"T_ORG.*",
+	    	"WHERE":"ID_=&InsertORG.T_ORG.ID_"
+	    },
+	    {
+	    	"id":"InsertORG",
+	    	"type":"insert",
+	    	"data":{
+	    			"T_ORG.NAME_":"测试",
+	    			"T_ORG.CODE_":"001",
+	    			"T_ORG.SHORT_NAME_":"测试"
+	    	}
+	    }
+	]
+}

@@ -33,4 +33,20 @@ public class CommonUtils {
 		}
 		return "".equals(str.trim());
 	}
+	
+	public static String concat(String[] arrays,String separator){
+		if(arrays.length==0){
+			return "";
+		}
+		if(arrays.length==1){
+			return arrays[0];
+		}
+		StringBuffer sb = new StringBuffer(arrays[0]);
+		for(int i=1; i<arrays.length; i++){
+			sb.append(separator);
+			sb.append(arrays[i]);
+		}
+		return sb.toString();
+		
+	}
 }

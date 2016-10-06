@@ -8,7 +8,7 @@ var defines = [
   ['myApp.roleTreeDirective','js/directives/roleTreeDirective'],            
   ['myApp.dialogs','js/dialogs/dialogs'],            
   ['myApp.filters','js/filters/myFilters'],            
-  ['myApp.util','js/services/util']            
+  ['myApp.util','js/services/util']          
 ];
 
 var defAddrs = [];

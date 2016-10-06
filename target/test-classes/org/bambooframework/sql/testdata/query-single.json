@@ -1,0 +1,45 @@
+      [{	
+	"id":"queryOrg",
+	"before":[],
+	"after":[],
+	"operate":[
+	    {
+	    	"id":"ORG",
+	    	"type":"query",
+	    	"result":"T_ORG.*",
+	    	"WHERE":"T_ORG.ID_='00001'"
+	    }
+	]
+},{	
+	"id":"queryOrg",
+	"before":[],
+	"after":[],
+	"operate":[
+	    {
+	    	"id":"ORG",
+	    	"type":"query",
+	    	"result":T_ORG:["*"],
+	    	"WHERE":"T_ORG.ID_='00001'"
+	    }
+	]
+},{	
+	"id":"queryOrg",
+	"before":[],
+	"after":[],
+	"operate":[
+	    {
+	    	"id":"ORG",
+	    	"type":"query",
+	    	"result":T_ORG:["*"],
+	    	"WHERE":[{
+	    		REL:"AND",
+	    		CONDITION:"=",
+	    		LEFT:{
+	    			TABLE:"T_ORG",
+	    			COLNAME:"ID_",
+	    		},
+	    		RIGHT:"00001"
+	    	}]
+	    }
+	]
+}]

@@ -1,0 +1,33 @@
+{	
+	"id":"queryOrg",
+	"before":[],
+	"after":[],
+	"operate":[
+	    {
+	    	"id":"ORG",
+	    	"type":"query",
+	    	 TABLE:{
+	    	 	TABLE:"T_ORG"
+	    	 	JOIN:[],
+	    	 	COLUMNS:"*",
+	    	 	"WHERE":"T_ORG.ID_='00001'"
+	    	 },
+	    	 ALIAS:"T_ORG"
+	    	 COLUMNS:"*",
+	    	 join:[
+	    			{
+	    				TABLE:"T_POSITION",
+	    				ALIAS:"T_POSITION"
+	    				COLUMNS:["*"],
+	    				ON:"T_ORG.ID_ = T_POSITION.ORG_ID_"
+	    			},
+	    			{
+	    				TABLE:"T_USER",
+	    				ALIAS:"T_USER"
+	    				COLUMNS:["*"],
+	    				ON:"T_ORG.ID_ = T_USER.ORG_ID_"
+	    			},
+	    	 ]
+	    }
+	]
+}

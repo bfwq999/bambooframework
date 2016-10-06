@@ -1,0 +1,26 @@
+[{	
+	"id":"queryOrg",
+	"operate":[
+	    {
+	    	"id":"ORG",
+	    	"type":"get",
+	    	"result":"T_ORG.*",
+	    	"WHERE":"T_ORG.ID_='00001'"
+	    }
+	]
+},
+{	
+	"id":"queryOrg",
+	"operate":[
+	    {
+	    	"id":"ORG",
+	    	"type":"get",
+	    	"result":{T_ORG:["ID_","NAME_"]},
+	    	"WHERE":{
+	    		expression:"T_ORG.ID_={0}",
+	    		args:["'00001'"]
+	    	}
+	    }
+	]
+}
+]

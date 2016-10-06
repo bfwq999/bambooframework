@@ -1,0 +1,13 @@
+{	
+	"id":"queryOrg",
+	"before":[],
+	"after":[],
+	"operate":[
+	    {
+	    	"id":"ORG",
+	    	"type":"query",
+	    	"result":"T_ORG.*,T_ORG.PARENT_ID_.NAME_,T_ORG.T_POSITION.*",
+	    	"WHERE":"T_ORG.ID_='00001'"
+	    }
+	]
+}
