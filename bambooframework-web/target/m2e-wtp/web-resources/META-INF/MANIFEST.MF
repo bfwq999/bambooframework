@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Implementation-Vendor: Pivotal Software, Inc.
+Implementation-Title: bambooframework-web
+Implementation-Version: 0.1
+Implementation-Vendor-Id: org.bambooframework
+Build-Jdk: 1.7.0_60
+Built-By: lei
+Created-By: Maven Integration for Eclipse
+

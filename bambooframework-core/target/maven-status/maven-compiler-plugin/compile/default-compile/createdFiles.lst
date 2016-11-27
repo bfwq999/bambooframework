@@ -1,0 +1,3 @@
+org\bambooframework\core\exception\BambooException.class
+org\bambooframework\core\exception\BambooClassLoadingException.class
+org\bambooframework\core\exception\BambooObjectNotFoundException.class
